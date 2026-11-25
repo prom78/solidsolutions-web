@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matěj Švrček — Solid Solutions s.r.o.</title>
+  <meta name="description" content="Matěj Švrček, Managing Director at Solid Solutions s.r.o. — Executive advisory and digital systems, Prague.">
+  <meta property="og:title" content="Matěj Švrček — Solid Solutions s.r.o.">
+  <meta property="og:description" content="Executive advisory and digital systems. Solid Solutions s.r.o., Prague.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://solidsolutions.cz/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111827'/%3E%3Cpath d='M10 11.5C10 10.12 11.12 9 12.5 9H21v3.2h-7.8v2.2h6.3c1.38 0 2.5 1.12 2.5 2.5v3.6c0 1.38-1.12 2.5-2.5 2.5H10v-3.2h8.8v-2.2h-6.3c-1.38 0-2.5-1.12-2.5-2.5v-3.6z' fill='%23ffffff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f6f6f4;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --subtle: #6b7280;
+      --border: #e5e7eb;
+      --pill-bg: #eef0f3;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d11;
+        --surface: #12161d;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --subtle: #6b7280;
+        --border: #1f2630;
+        --pill-bg: #1a2029;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-btn[aria-pressed="true"] {
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    }
+
+    main {
+      padding: 3.25rem 0 2.5rem;
+      flex: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      margin: 0 0 0.75rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .role {
+      margin: 0.5rem 0 1.75rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .lead {
+      margin: 0 0 2.75rem;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .card-num {
+      display: block;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--subtle);
+      margin-bottom: 0.5rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .entity {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+    }
+
+    .entity-title {
+      margin: 0 0 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+    }
+
+    .entity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem 1.5rem;
+      margin: 0;
+    }
+
+    .entity-item dt {
+      font-size: 0.78rem;
+      color: var(--subtle);
+    }
+
+    .entity-item dd {
+      margin: 0.15rem 0 0;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    footer {
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--subtle);
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    html[lang="en"] [data-lang="en"],
+    html[lang="cs"] [data-lang="cs"] {
+      display: revert;
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 1.5rem 1.15rem 2rem;
+      }
+
+      header {
+        padding-bottom: 1.5rem;
+      }
+
+      main {
+        padding: 2.25rem 0 2rem;
+      }
+
+      .pillars,
+      .entity-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="currentColor" opacity="0.92"/>
+          <path d="M10 11.5C10 10.12 11.12 9 12.5 9H21v3.2h-7.8v2.2h6.3c1.38 0 2.5 1.12 2.5 2.5v3.6c0 1.38-1.12 2.5-2.5 2.5H10v-3.2h8.8v-2.2h-6.3c-1.38 0-2.5-1.12-2.5-2.5v-3.6z" fill="var(--surface)"/>
+        </svg>
+        <span class="brand-name">Solid Solutions s.r.o.</span>
+      </a>
+
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-set-lang="cs" aria-pressed="false">CZ</button>
+      </div>
+    </header>
+
+    <main>
+      <p class="eyebrow">
+        <span data-lang="en">Prague, Czech Republic</span>
+        <span data-lang="cs">Praha, Česká republika</span>
+      </p>
+
+      <h1>Matěj Švrček</h1>
+
+      <p class="role">
+        <span data-lang="en">Managing Director, Solid Solutions s.r.o.</span>
+        <span data-lang="cs">Jednatel, Solid Solutions s.r.o.</span>
+      </p>
+
+      <p class="lead">
+        <span data-lang="en">
+          Executive leadership and independent advisory focused on technology strategy,
+          operational clarity, and durable systems execution.
+        </span>
+        <span data-lang="cs">
+          Vedení společnosti a nezávislé poradenství zaměřené na technologickou strategii,
+          provozní efektivitu a udržitelnou realizaci systémových řešení.
+        </span>
+      </p>
+
+      <section class="pillars" aria-label="Focus areas">
+        <article class="card">
+          <span class="card-num">01</span>
+          <h2>
+            <span data-lang="en">Executive Advisory</span>
+            <span data-lang="cs">Strategické poradenství</span>
+          </h2>
+          <p>
+            <span data-lang="en">Aligning business priorities, governance, and decision-making across leadership teams.</span>
+            <span data-lang="cs">Propojení obchodních priorit, řízení a rozhodování na úrovni vedení firem.</span>
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-num">02</span>
+          <h2>
+            <span data-lang="en">Systems &amp; Operations</span>
+            <span data-lang="cs">Systémy a provoz</span>
+          </h2>
+          <p>
+            <span data-lang="en">Designing practical digital workflows and technology architectures built for longevity.</span>
+            <span data-lang="cs">Návrh praktických digitálních procesů a technologické architektury s dlouhou životností.</span>
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-num">03</span>
+          <h2>
+            <span data-lang="en">Corporate Governance</span>
+            <span data-lang="cs">Správa společnosti</span>
+          </h2>
+          <p>
+            <span data-lang="en">Statutory management and structured oversight of Solid Solutions s.r.o. since 2013.</span>
+            <span data-lang="cs">Statutární vedení a správa společnosti Solid Solutions s.r.o. od roku 2013.</span>
+          </p>
+        </article>
+      </section>
+
+      <section class="entity" aria-label="Company details">
+        <h2 class="entity-title">
+          <span data-lang="en">Corporate Information</span>
+          <span data-lang="cs">Údaje o společnosti</span>
+        </h2>
+        <dl class="entity-grid">
+          <div class="entity-item">
+            <dt>
+              <span data-lang="en">Company</span>
+              <span data-lang="cs">Obchodní firma</span>
+            </dt>
+            <dd>Solid Solutions s.r.o.</dd>
+          </div>
+
+          <div class="entity-item">
+            <dt>
+              <span data-lang="en">Company ID (IČO)</span>
+              <span data-lang="cs">IČO</span>
+            </dt>
+            <dd>29145309</dd>
+          </div>
+
+          <div class="entity-item">
+            <dt>
+              <span data-lang="en">Registered Office</span>
+              <span data-lang="cs">Sídlo</span>
+            </dt>
+            <dd>Hládkov 686/3, 169 00 Praha 6</dd>
+          </div>
+
+          <div class="entity-item">
+            <dt>
+              <span data-lang="en">Commercial Register</span>
+              <span data-lang="cs">Obchodní rejstřík</span>
+            </dt>
+            <dd>
+              <span data-lang="en">Municipal Court in Prague, File C 203991</span>
+              <span data-lang="cs">Městský soud v Praze, sp. zn. C 203991</span>
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; <span id="year">2026</span> Solid Solutions s.r.o.</span>
+      <span>solidsolutions.cz</span>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var yearEl = document.getElementById("year");
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+
+      var buttons = document.querySelectorAll("[data-set-lang]");
+      function applyLang(lang) {
+        var next = lang === "cs" ? "cs" : "en";
+        document.documentElement.lang = next;
+        for (var i = 0; i < buttons.length; i++) {
+          var btn = buttons[i];
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === next ? "true" : "false");
+        }
+        try {
+          localStorage.setItem("ss_lang", next);
+        } catch (e) {}
+      }
+
+      var initial = "en";
+      try {
+        var saved = localStorage.getItem("ss_lang");
+        if (saved === "cs" || saved === "en") {
+          initial = saved;
+        } else if (navigator.language && /^(cs|sk)\b/i.test(navigator.language)) {
+          initial = "cs";
+        }
+      } catch (e) {}
+      applyLang(initial);
+
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          applyLang(this.getAttribute("data-set-lang"));
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
